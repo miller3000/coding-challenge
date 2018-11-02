@@ -5,12 +5,19 @@
 <p><%= @post.body %></p>
 
 <p>
-  <%= link_to "Edit", edit_post_path(@post) %>
+  <%= link_to "Edit Post", edit_post_path(@post) %>
 </p>
 <p>
-  <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: 'Delete this post and all associated comments?'} %>
+  <%= link_to "Delete Post", post_path(@post), method: :delete, data: {confirm: 'Delete this post and all associated comments?'} %>
 </p>
+
+<h2><%= count_comments(@post)%></h2>
+<%= render :partial => "comments/new" %>
+<br/>
+<%= render :partial => "comments/index" unless !@comments %>
+
+<br/>
 <p>
-  <%= link_to "Back to List", root_path %>
+  <%= link_to "Back Home", root_path %>
 </p>
 

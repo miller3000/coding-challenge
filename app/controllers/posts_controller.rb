@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   def index
     # Return view of all `Posts`
     @posts = Post.all
-    # @title =
   end
 
   def edit
@@ -19,6 +18,7 @@ class PostsController < ApplicationController
 
   def show
     # Return view to create a new `Post`
+    @comments = Comment.find_by post_id: @post.id
   end
 
 # C.R.U.D.
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "Post has been saved."
-      redirect_to posts_path(@path)
+      redirect_to posts_path
     else
       render :new
     end
