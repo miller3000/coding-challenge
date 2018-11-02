@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
-  include PostsHelper
+  before_action :set_post, only: [:edit, :show, :destroy, :update]
 
 # VIEWS
   def index
     # Return view of all `Posts`
     @posts = Post.all
+    # @title =
   end
 
   def edit
@@ -41,7 +42,6 @@ class PostsController < ApplicationController
 
   def update
     # Edit a `Post` in the database
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = "Post has been updated."
       redirect_to post_path(@post)
@@ -54,6 +54,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 
 end

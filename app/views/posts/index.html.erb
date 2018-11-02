@@ -10,12 +10,14 @@
   <tr>
     <th>Title</th>
     <th>Body</th>
+    <th>Link</th>
   </tr>
 
   <% @posts.each do |post| %>
     <tr>
-      <td><%= post.title.first(40) %></td>
-      <td><%= post.body.first(100) %></td>
+      <td><%= post.title %></td>
+      <td><%= truncate_title(post) %></td>
+      <td><%= link_to "#{count_comments(post)}", post_path(post) %></td>
     </tr>
   <% end %>
 
