@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root controller: :posts, action: :index
+  root 'posts#index'
   resources :posts, :comments
 
   #       Prefix Verb   URI Pattern                  Controller#Action
