@@ -8,6 +8,14 @@ module PostsHelper
     end
   end
 
+  def display_search(posts)
+    if posts.empty?
+      "No matching posts found"
+    else
+      "View #{posts.size} matching posts"
+    end
+  end
+
   def truncate_title(post)
     if post.body.length > 80
       "#{post.body.first(80)}..."

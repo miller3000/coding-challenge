@@ -1,17 +1,19 @@
-<%= form_for @post do |f| %>
-  <p>
-    <%= f.label :title %><br/>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :body %><br/>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="form_post">
+  <%= form_for @post do |f| %>
+    <p>
+      <%= f.label :title %><br/>
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :body %><br/>
+      <%= f.text_area :body %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
 
-<p>
-  <%= link_to "Cancel", root_path %>
-</p>
+  <p>
+    <%= link_to "Cancel", root_path %>
+  </p>
+</div>

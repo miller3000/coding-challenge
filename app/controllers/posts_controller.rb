@@ -3,8 +3,15 @@ class PostsController < ApplicationController
 
 # VIEWS
   def index
-    # Return view of all `Posts`
-    @posts = Post.all
+    # Return view of all `Posts` or all `Posts` returned from a search
+    if params[:search]
+      @posts = Post.where('title LIKE ?', "%#{params[:search]}%")
+      respond_to do |format|
+        format.js { render partial: 'search-results'}
+      end
+    else
+      @posts = Post.all
+    end
   end
 
   def edit
@@ -53,7 +60,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :search)
   end
 
   def set_post

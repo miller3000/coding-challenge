@@ -13,10 +13,9 @@
       <nav>
         <div class="container">
           <div class="nav-wrapper">
-            <a href="#" class="brand-logo right">Challenge Blog</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-              <li><%= link_to "Blog Home", root_path %></li>
-              <li><%= link_to "New Post", new_post_path %></li>
+            <%= link_to "Challenge Blog", root_path, :class => "brand-logo left" %>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><%= link_to "Create New Post", new_post_path %></li>
             </ul>
           </div>
         </div>

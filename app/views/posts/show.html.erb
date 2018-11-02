@@ -1,7 +1,7 @@
 <!-- View for showing a single `Post` -->
 <!-- `post_path` -->
 
-<h1><%= @post.title %></h1>
+<h3><%= @post.title %></h3>
 <p><%= @post.body %></p>
 
 <p>
@@ -11,7 +11,12 @@
   <%= link_to "Delete Post", post_path(@post), method: :delete, data: {confirm: 'Delete this post and all associated comments?'} %>
 </p>
 
-<h2><%= count_comments(@post)%></h2>
+<br/>
+<br/>
+
+<h5><%= count_comments(@post)%></h5>
+<br/>
+<br/>
 <%= render :partial => "comments/new" %>
 <br/>
 <%= render :partial => "comments/index" unless !@comments %>
